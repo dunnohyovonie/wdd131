@@ -3,48 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WDD 131 – Dynamic Web Fundamentals - Your Name</title>
-  <meta name="description" content="WDD 131 – Dynamic Web Fundamentals. Your Name. Summary of your page content here.">
-  <meta name="author" content="Dunnoh  Yovonie">
-  <link rel="stylesheet" href="./style/base.css">
-  <script src="./scripts/getdates.js" defer></script>
+  <meta name="description" content="Course Home Page for WDD 231 — BYU-Pathway">
+  <meta name="author" content="Dunnoh Yovonie">
+  <title>WDD 231 | Course Home Page</title>
+  <link rel="stylesheet" href="styles/larger.css">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="Scripts/navigation.js" defer></script>
+  <script src="Scripts/date.js" defer></script>
+  <script src="Scripts/course.js" defer></script>
 </head>
 <body>
   <header>
-    <h1>WDD 131 – Dynamic Web Fundamentals</h1>
-    <nav>
-      <a href="https://www.linkedin.com/feed/">LinkedIn</a>
-      <a href="https://byupw.instructure.com/">Canvas</a>
-      <a href="https://www.churchofjesuschrist.org/study/scriptures">Scripture</a>
-      <a href="#">Final Project</a>
-    </nav>
+    <img src="images/profile.jpg" alt="Your Profile Photo" width="80" height="80">
+    <span>DUNNOH YOVONIE</span>
   </header>
 
-  <main>
-    <section class="card">
-      <h2>About Me</h2>
-      <img src="images/dd.jpeg" alt="Description of image 1">
-      <p>Hello! My name is Dunnoh Yovonie. I am passionate about learning, creating, and helping others through technology and design. With a background in  web development, business management, and Research. I enjoy working on projects that make a positive impact and solve real-world problems.
-         Outside of work, I love exploring new places, meeting new people, and continuously expanding my skills. Whether it’s through coding, reading, or collaborating with others, I strive to grow every day and make meaningful contributions wherever I go.</p>
-      <div>FREETOWN, SIERRA LEONE</div>
-      <hr>
-      <div class="card4"><img src="images/th.jpeg" alt="Description of image 1" title="This is a Photo of Thompson in a beautiful beach in Sierra Leone"></div>
-      <p>Freetown is the capital and largest city of Sierra Leone, located on the Atlantic coast of West Africa. Known for its beautiful beaches and historic significance, Freetown was founded in 1792 by freed African American, Caribbean, and liberated African slaves. The city is a vibrant cultural and economic hub, home to historic landmarks such as the Cotton Tree and Fourah Bay College, the oldest university in West Africa. With a diverse population and bustling markets, Freetown blends rich history with modern urban life.</p>
-    </section>
-    <section class="card">
-      <h2>Web Dev Resources</h2>
-      <ul>
-        <li><a href="https://dev.to/">Dev to Community</a></li>
-        <li><a href="https://www.smashingmagazine.com/">Smashing Magazine</a></li>
-        <li><a href="https://css-tricks.com/">CSS Tricks</a></li>
-        <li><a href="https://www.udemy.com/">Udemy</a></li>
-        <li><a href="https://placehold.co/">Image Placeholder</a></li>
+  <nav>
+    <button id="menu" type="button">☰ Menu</button>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="#">Chamber</a></li>
+      <li><a href="#">Final</a></li>
+      <li><a href="https://github.com/yourgithubusername">GitHub Profile</a></li>
+      <li><a href="https://linkedin.com">LinkedIn</a></li>
     </ul>
+  </nav>
+
+  <main>
+    <h1>Home</h1>
+
+    <section class="card">
+      <h2>Course</h2>
+
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+   </section>
+
+    <section class="card">
+      <h2>Freetown, Sierra Loene</h2>
+      <img src="#" alt="">
+    </section>
+
+    <section>
+      <h2>Computer Web and Certificate</h2>
+      <div class="buttons">
+        <button id="all" type="button">All Courses</button>
+        <button id="wdd" type="button">WDD Courses</button>
+        <button id="cse" type="button">CSE Courses</button>
+
+      </div>
+      <div id="courses"></div>
+      <p>Total Credits: <span id="totalCredits">0</span></p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>Feel free to contact me for project collaboration or networking opportunities.</p>
     </section>
   </main>
 
   <footer>
-    <p>&copy; <span id="currentyear"></span> Dunnoh Yovonie, Sierra Leone</p>
+    <p>&copy; <span id="currentyear"></span> DUNNOH YOVONIE | SIERRA LEONE</p>
     <p id="lastModified"></p>
   </footer>
 </body>
