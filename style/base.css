@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+:root {
+  --primary-color: #0b3c5d;   /* Navy Blue */
+  --accent-color: #f9aa33;    /* Gold */
+  --nav-bg: #333333;          /* Dark Gray */
+  --card-header-bg: #145DA0;  /* Medium Blue */
+  --card-border-radius: 8px;
+  --card-border-color: #ccc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #fff;
+  color: #000;
+}
+
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.1rem;
+  text-align: center;
+  
+}
+
+header h1 {
+  margin: 0;
+}
+
+header h1 span {
+  color: var(--accent-color);
+}
+
+nav {
+  background-color: var(--nav-bg);
+  display: flex;
+  justify-content: space-around;
+  padding: 0.1rem 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+nav a:hover {
+  background-color: #555;
+  border-radius: 4px;
+}
+
+/* Main Layout - Grid */
+main {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  margin: 1rem;
+}
+
+/* Card Styling */
+.card {
+  border: 1px solid var(--card-border-color);
+  border-radius: var(--card-border-radius);
+  padding: 1rem;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+  background-color: var(--card-header-bg);
+  color: white;
+  margin: -1rem -1rem 1rem -1rem;
+  padding: 0.5rem;
+  text-align: center;
+  border-top-left-radius: var(--card-border-radius);
+  border-top-right-radius: var(--card-border-radius);
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+}
+
+.card p {
+  margin-top: 0.5rem;
+}
+
+/* Image + Text section inside About Me */
+.card img {
+  float: right;
+  margin-left: 1rem;
+  max-width: 100px;
+  height: 150px;
+}
+.card4 img {
+  float: left;
+  max-width: 150px;
+  height: 100px;
+  margin: 1rem 1rem 1rem 1rem;
+  margin-top: 0.5rem;
+}
+ 
+.card ul li a:hover{ 
+  background-color: #555;
+  text-decoration: none;
+}
+.card ul li a{ 
+  text-decoration: none;
+  text-align: center; 
+  }
+
+/* Subsection Heading (Toloria, Madagascar) */
+.card h3 {
+  border-top: 1px solid #ccc;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+}
+.card div{
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--primary-color);  color: white;
+  text-align: center;
+  padding: 1rem;
+  z-index: 100; /* make sure it stays on top */
+}
+
+
+footer p {
+  margin: 0.25rem 0;
+  
+}
+
+footer span {
+  color: var(--accent-color);
+}
+
+/* Last Modified color */
+#lastModified {
+  color: var(--accent-color);
+}
+
+/* Links inside Web Dev Resources card */
+.card a {
+  color: #000099;
+}
+
+.card a:hover {
+  color: #ff6600;
+  text-decoration: underline;
+}
