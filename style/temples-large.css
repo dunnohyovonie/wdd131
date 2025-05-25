@@ -1,0 +1,38 @@
+/* Large screen styles */
+#menu-button {
+    display: none;
+}
+
+#primary-nav {
+    display: block;
+}
+
+nav ul {
+    display: flex;
+}
+
+header {
+    padding: 1rem 2rem;
+}
+
+.gallery {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 1024px) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+    footer{
+        bottom: 0;
+    }
+}

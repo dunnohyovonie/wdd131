@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sierra Leone | WDD 131 Country Page</title>
+  <meta name="description" content="WDD 131 Week 03 Assignment - Country Page about Sierra Leone">
+  <meta name="author" content="Dunnoh Yovonie">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style/place.css">
+  <script src="scripts/getdates.js" defer></script>
+  <script src="scripts/windchill.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+</head>
+<body>
+  <header>
+    <h1>Sierra Leone</h1>
+    <picture>
+      <source media="(min-width: 400px)" srcset="images/flag-sierra-leone.webp">
+      <source media="(min-width: 400px)" srcset="images/flag-sierra-leone.webp">
+      <img src="images/flag-sierra-leone.webp" alt="Sierra Leone Flag" width="70" height="70">
+    </picture>
+  </header>
+
+  <main>
+
+    <section class="card data">
+        <h2>Data</h2>
+        <p><strong>Area:</strong> 587,041 sq km</p>
+        <p><strong>Population:</strong> 27,691,018</p>
+        <p><strong>Capital:</strong> Freetown</p>
+        <p><strong>Languages:</strong> Krio, English</p>
+        <p><strong>Currency:</strong> Leones</p>
+        <p><strong>Time Zone:</strong> UTC+00</p>
+        <p><strong>Calling Code:</strong> +232</p>
+        <p><strong>Internet TLD:</strong> .sl</p>
+      </section>
+
+    <section class="card-weather">
+      <h2>Weather</h2>
+      <div class="weather-content">
+        <div class="weather-icon">
+            <i class="bi bi-cloud-drizzle-fill" alt="Partly Cloudy Icon" width="50" height="50"></i>
+        </div>
+        <div class="weather-details">
+          <p><strong>Temperature:</strong> <span id="temp">10</span> °C</p>
+          <p><strong>Conditions:</strong> Partly Cloudy</p>
+          <p><strong>Wind:</strong> <span id="wind-speed">5</span> km/h</p>
+          <p><strong>Wind Chill:</strong> <span id="wind-chill">N/A</span></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy;<span id="currentyear"></span> | Dunnoh Yovonie| Sierra Leone</p>
+    <p id="lastModified">Last Modification: </p>
+  </footer>
+</body>
+</html>
