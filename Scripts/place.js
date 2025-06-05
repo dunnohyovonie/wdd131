@@ -1,6 +1,8 @@
 // Set footer year and last modified
 document.getElementById("year").textContent = new Date().getFullYear();
-document.getElementById("lastModified").textContent = document.lastModified;
+const modified = document.lastModified;
+document.getElementById("lastModified").textContent = modified || "Unknown";
+
 
 // Wind Chill Calculation
 function calculateWindChill(tempF, speedMph) {
