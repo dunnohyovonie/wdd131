@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country</title>
+    <meta name="description" content="A collection of beautiful temple pictures from around Africa Region">
+    <meta name="author" content="Dunnoh Yovonie">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style/place.css">
+  <script src="scripts/place.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>SIERRA LEONE</h1>
+  </header>
+  <main>
+    <div class="hero-container">
+    <picture>
+      <source srcset="images/chimpazee.webp" media="(min-width: 600px)">
+      <img src="images/chimpazee.webp" alt="Scenic view of the place">
+    </picture>
+    <section class="data">
+      <h2>Data</h2>
+      <p>Area: <span>57748sqkm</span></p>
+      <p>Population: <span>800000</span></p>
+      <p>Capital: <span>Freetown</span></p>
+      <p>Language: <span>English</span></p>
+      <p>Time: <span>+00</span></p>
+      <p>Calling: <span>+232</span></p>
+    </section>
+
+    <section class="weather">
+      <h2>Weather <span class="icon"></span></h2>
+      <img src="images/weather.svg" alt="Weather icon" class="mobile-icon">
+      <p>Temperature: <span id="temp">40</span>°F</p>
+      <p>Wind Speed: <span id="wind">6</span> mph</p>
+      <p>Wind Chill: <span id="windchill">N/A</span></p>
+      <p>Condition: <span>Sunny</span></p>
+    </section>
+  </div>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Your Name - Your Location</p>
+    <p>Last modified: <span id="lastModified"></span></p>
+  </footer>
+</body>
+</html>
