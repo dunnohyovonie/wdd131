@@ -1,0 +1,47 @@
+/* Base mobile styles */
+.hero {
+  display: block;
+}
+
+@media (min-width: 700px) {
+  main {
+    position: relative;
+    background-image: url("../images/mylove.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    gap: 4rem;
+    flex-wrap: wrap;
+  }
+
+  .hero {
+    display: none; /* hide original hero image on large view */
+  }
+
+  .data,
+  .weather {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+    max-width: 320px;
+    width: 100%;
+  }
+
+  .weather h2 .weather-icon {
+    display: inline;
+    margin-left: 0.5rem;
+  }
+
+  footer {
+    background-color: #be0027;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+  }
+}
