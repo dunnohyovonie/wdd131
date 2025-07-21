@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="WDD 131 – Dynamic Web Fundamentals – Dunnoh Yovonie. Information page about Sierra Leone.">
+  <meta name="author" content="Dunnoh Yovonie">
+  <title>Sierra Leone</title>
+  <link rel="stylesheet" href="styles/place-large.css">
+  <link rel="stylesheet" href="styles/place.css">
+ <script src="scripts/place.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Pacifico&display=swap" rel="stylesheet">
+  <script src="scripts/getdates.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>SIERRA LEONE</h1>
+  </header>
+
+  <main>
+    <!-- Hero Image -->
+    <section class="hero">
+      <picture>
+        <source media="(min-width: 768px)" srcset="images/mylove.jpg">
+        <source media="(max-width: 767px)" srcset="images/mylove.jpg">
+        <img src="images/mylove.webp" alt="Landscape">
+      </picture>
+    </section>
+
+    <!-- Data Section -->
+    <section class="info-section">
+      <div class="info-card data-card">
+        <div class="card-header">
+          <h2>Data</h2>
+        </div>
+        <dl class="data-list">
+          <div><dt>Area:</dt><dd>71,740 sq km</dd></div>
+          <div><dt>Population:</dt><dd>8,420,641</dd></div>
+          <div><dt>Capital:</dt><dd>Freetown</dd></div>
+          <div><dt>Languages:</dt><dd>English, Krio, Mende, Temne</dd></div>
+          <div><dt>Currency:</dt><dd>Leone</dd></div>
+          <div><dt>Time Zone:</dt><dd>UTC+0</dd></div>
+          <div><dt>Calling Code:</dt><dd>+232</dd></div>
+          <div><dt>Internet TLD:</dt><dd>.sl</dd></div>
+        </dl>
+      </div>
+
+      <!-- Weather Section -->
+      <div class="info-card weather-card">
+        <div class="card-header">
+          <h2>Weather</h2>
+          <span class="weather-icon" aria-hidden="true">⛅</span>
+        </div>
+        <dl class="weather-data">
+          <div><dt>Temperature:</dt><dd id="temperature">10°C</dd></div>
+          <div><dt>Conditions:</dt><dd id="condition">Partly Cloudy</dd></div>
+          <div><dt>Wind:</dt><dd id="wind-speed">5 km/h</dd></div>
+          <div><dt>Wind Chill:</dt><dd id="windchill">Calculating...</dd></div>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+ <footer>
+    <p>&copy; <span id="currentyear"></span> 🌸 Dunnoh Yovonie 🌸 Sierra Leone</p>
+    <p id="lastModified"></p>
+  </footer>
+</body>
+</html>
