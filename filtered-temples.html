@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temple Gallery</title>
+    <meta name="description" content="View information about temples of The Church of Jesus Christ of Latter-day Saints">
+    <meta name="author" content="Dunnoh Yovonie">
+    <link rel="stylesheet" href="styles/filtered-temples.css">
+    <script src="scripts/filtered-temples.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Temples of The Church of Jesus Christ of Latter-day Saints</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#" data-filter="all">Home</a></li>
+            <li><a href="#" data-filter="old">Old</a></li>
+            <li><a href="#" data-filter="new">New</a></li>
+            <li><a href="#" data-filter="large">Large</a></li>
+            <li><a href="#" data-filter="small">Small</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div id="temple-cards" class="grid"></div>
+    </main>
+    <footer>
+    <p>&copy; <span id="currentyear"></span> 🌸 Dunnoh Yovonie 🌸 Sierra Leone</p>
+    <p id="lastModified"></p>
+  </footer>
+</body>
+</html>
