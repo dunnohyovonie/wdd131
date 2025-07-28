@@ -8,20 +8,28 @@
     <meta name="author" content="Dunnoh Yovonie">
     <link rel="stylesheet" href="styles/filtered-temples.css">
     <script src="scripts/filtered-temples.js" defer></script>
+    <script src="scripts/nav.js" defer></script>
 </head>
 <body>
     <header>
         <h1>Temples of The Church of Jesus Christ of Latter-day Saints</h1>
     </header>
     <nav>
-        <ul>
-            <li><a href="#" data-filter="all">Home</a></li>
+    <div class="nav-container">
+        <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#" data-filter="all" class="active">Home</a></li>
             <li><a href="#" data-filter="old">Old</a></li>
             <li><a href="#" data-filter="new">New</a></li>
             <li><a href="#" data-filter="large">Large</a></li>
             <li><a href="#" data-filter="small">Small</a></li>
         </ul>
-    </nav>
+    </div>
+</nav>
     <main>
         <div id="temple-cards" class="grid"></div>
     </main>
