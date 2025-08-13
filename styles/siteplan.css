@@ -1,0 +1,90 @@
+/* General Styles */
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #2D6A4F;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+header h1 {
+    margin: 0;
+    font-family: 'Merriweather', serif;
+}
+
+header p {
+    margin-top: 5px;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px 0;
+}
+
+/* Section Headings */
+h2 {
+    color: #2D6A4F;
+    font-family: 'Merriweather', serif;
+    border-bottom: 2px solid #F2C14E;
+    padding-bottom: 5px;
+}
+
+h3 {
+    color: #333;
+    font-family: 'Merriweather', serif;
+}
+
+/* Color Schema */
+.color-scheme {
+    display: flex;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.color-box {
+    flex: 1;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.green {
+    background-color: #2D6A4F;
+}
+
+.gold {
+    background-color: #F2C14E;
+    color: #333;
+}
+
+/* Wireframe Images */
+.wireframe-img {
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+    background-color: #1B4332;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
