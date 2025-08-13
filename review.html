@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You!</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Thank You for Your Feedback!</h1>
+    <p>Your input helps us train youth in responsibility, service, and professionalism.</p>
+  </header>
+
+  <main>
+    <section class="confirmation">
+      <h2>Your Feedback Summary</h2>
+      <ul id="reviewData"></ul>
+
+      <div class="counter">
+        <p><strong>Total Customer Reviews Received:</strong> <span id="reviewCount">0</span></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Liahona Youth Cleaning Company and Service - WDD 131 Assignment</p>
+  </footer>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const reviewData = document.getElementById("reviewData");
+
+    const fields = {
+      serviceType: "Service Type",
+      rating: "Satisfaction Rating",
+      serviceDate: "Service Date",
+      positive: "What We Did Well",
+      suggestions: "Suggestions",
+      customerName: "Your Name"
+    };
+
+    for (const [key, label] of Object.entries(fields)) {
+      let value = urlParams.getAll(key).join(", ");
+      if (value) {
+        const li = document.createElement("li");
+        li.innerHTML = `<strong>${label}:</strong> ${value}`;
+        reviewData.appendChild(li);
+      }
+    }
+
+    // Update counter
+    let count = localStorage.getItem("reviewCount");
+    count = count ? parseInt(count) + 1 : 1;
+    localStorage.setItem("reviewCount", count);
+    document.getElementById("reviewCount").textContent = count;
+
+    // Update year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
