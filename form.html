@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback | Liahona Youth Cleaning Company</title>
+  <link rel="stylesheet" href="styles/form.css" >
+  <script src="scripts/form.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Liahona Youth Cleaning Company and Service</h1>
+    <p>We appreciate your trust in our young team! Please share your experience.</p>
+  </header>
+
+  <main>
+    <form action="review.html" method="get" id="reviewForm">
+      <!-- Service Type -->
+      <div class="form-group">
+        <label for="serviceType">Type of Service *</label>
+        <select id="serviceType" name="serviceType" required>
+          <option value="" disabled selected>Select a Service ...</option>
+          <!-- Options populated by JavaScript -->
+        </select>
+      </div>
+
+      <!-- Overall Rating -->
+<!-- Removed duplicate "What did we do well?" section with incorrect checkbox names -->
+      <!-- Date of Service -->
+      <div class="form-group">
+        <label for="serviceDate">Date of Service *</label>
+        <input type="date" id="serviceDate" name="serviceDate" required >
+      </div>
+
+      <!-- What Was Done Well -->
+      <fieldset class="form-group">
+        <legend>What did we do well? </legend>
+        <p class="subtext">Check all that apply</p>
+        <br>
+        <div class="checkbox-group">
+          <input type="checkbox" id="well1" name="positive[]" value="Thorough Cleaning" >
+          <label for="well1">Thorough Cleaning</label>
+
+          <input type="checkbox" id="well2" name="positive[]" value="Punctual Arrival" >
+          <label for="well2">Punctual Arrival</label>
+
+          <input type="checkbox" id="well3" name="positive[]" value="Polite & Professional" >
+          <label for="well3">Polite and Professional</label>
+
+          <input type="checkbox" id="well4" name="positive[]" value="Great Communication" >
+          <label for="well4">Great Communication</label>
+
+          <input type="checkbox" id="well5" name="positive[]" value="Left No Mess" >
+          <label for="well5">Left No Mess</label>
+        </div>
+      </fieldset>
+
+      <!-- Suggestions for Improvement -->
+      <div class="form-group">
+        <label for="suggestions">Suggestions for Improvement</label>
+        <textarea id="suggestions" name="suggestions" rows="4"
+                  placeholder="Is there anything we could do better next time?"></textarea>
+      </div>
+
+      <!-- Customer Name -->
+      <div class="form-group">
+        <label for="customerName">Your Name (Optional)</label>
+        <input type="text" id="customerName" name="customerName"
+               placeholder="e.g., Sarah Thompson" >
+      </div>
+
+      <!-- Submit Button -->
+      <div class="form-group">
+        <button type="submit" class="btn-submit">Submit Feedback</button>
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Liahona Youth Cleaning Company and Service - WDD 131 Assignment</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
