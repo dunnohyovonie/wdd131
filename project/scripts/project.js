@@ -1,73 +1,88 @@
 /**
- * Liahona Youth Cleaning - Final Project (W06)
- * Unified JavaScript for all pages
+ * Liahona's Youth Cleaning Company
+ * Unified JavaScript - Final Project (W06)
+ * Handles: Mobile Menu, Nav Active Link, Services, Testimonials, Booking Form
  */
 
-// Wait for DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", function () {
   // ============ 1. MOBILE MENU TOGGLE ============
   const menuToggle = document.getElementById("menu-toggle");
   const navList = document.querySelector("nav ul");
 
   if (menuToggle && navList) {
+    // Initialize aria-expanded
+    menuToggle.setAttribute("aria-expanded", "false");
+
     menuToggle.addEventListener("click", () => {
       navList.classList.toggle("show");
+      const isExpanded = navList.classList.contains("show");
+      menuToggle.setAttribute("aria-expanded", isExpanded);
+    });
+
+    // Close mobile menu when clicking a link
+    navList.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navList.classList.remove("show");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
     });
   }
 
-  // Highlight active page in navigation
-  const currentPage = window.location.basename = window.location.pathname.split("/").pop();
+  // ============ 2. HIGHLIGHT ACTIVE NAV LINK ============
+  const path = window.location.pathname;
+  const currentPage = path.split("/").pop() || "index.html";
   const navLinks = document.querySelectorAll("nav a");
 
   navLinks.forEach(link => {
     const href = link.getAttribute("href");
     if (href === currentPage) {
       link.classList.add("active");
+    } else {
+      link.classList.remove("active");
     }
   });
 
-  // ============ 2. SERVICES DATA & RENDERING ============
+  // ============ 3. SERVICES DATA & RENDERING ============
   const services = [
     {
       name: "Residential Cleaning",
-      desc: "Deep cleaning for homes, including kitchens, bathrooms, bedrooms, and living areas. Perfect for move-ins, move-outs, or regular maintenance.",
-      price: 90,
-      image: "cleaning1.jpg"
+      desc: "Regular or deep cleaning for homes of all sizes. Kitchens, bathrooms, floors, and more.",
+      price: 120,
+      image: "residential.jpg"
     },
     {
       name: "Commercial Cleaning",
-      desc: "Professional cleaning for offices, retail stores, and church facilities. We help keep your workspace healthy and welcoming.",
-      price: 120,
-      image: "cleaning2.jpg"
+      desc: "Keep your office spotless and professional. Daily, weekly, or monthly plans available.",
+      price: 180,
+      image: "office.jpg"
     },
     {
-      name: "Sanitization",
-      desc: "High-touch surface disinfection using EPA-approved products. Ideal for homes and businesses concerned about germs and illness prevention.",
-      price: 110,
-      image: "sanitization.jpg"
+      name: "Carpet and Upholstery",
+      desc: "Deep steam cleaning to remove stains, odors, and allergens.",
+      price: 90,
+      image: "carpet.jpg"
     },
     {
-      name: "Pest Control",
-      desc: "Safe, humane removal of ants, spiders, rodents, and other pests. Includes prevention tips and follow-up recommendations.",
-      price: 150,
-      image: "pest.jpg"
+      name: "Move-In/Move-Out",
+      desc: "Thorough cleaning before moving in or out. Landlords love it!",
+      price: 200,
+      image: "move.jpg"
     }
   ];
 
-  // Render services on services.html
+  // Render on services.html
   const servicesGrid = document.getElementById("services-grid");
   if (servicesGrid) {
     servicesGrid.innerHTML = "<p>Loading services...</p>";
 
-    // Simulate small delay for better UX (optional)
     setTimeout(() => {
       const html = services.map(s => `
         <article class="service-card">
-          <img src="images/${s.image}" alt="Professional ${s.name}" loading="lazy">
+          <img src="images/${s.image}" alt="${s.name}" loading="lazy">
           <h3>${s.name}</h3>
           <p>${s.desc}</p>
-          <p><strong>Starting at: $${s.price}</strong></p>
-          <a href="contact.html" class="btn">Schedule ${s.name}</a>
+          <p class="price"><strong>Starting at $${s.price}</strong></p>
+          <a href="#booking" class="btn btn-primary">Book Now</a>
         </article>
       `).join("");
 
@@ -75,22 +90,23 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 100);
   }
 
-  // Render service preview on index.html (first 2 services)
+  // Render preview on index.html (first 2 services)
   const servicesList = document.getElementById("services-list");
   if (servicesList) {
     const previewHTML = services.slice(0, 2).map(s => `
       <div class="service-card">
         <h3>${s.name}</h3>
         <p>${s.desc}</p>
-        <p><strong>From: $${s.price}</strong></p>
+        <p class="price"><strong>From: $${s.price}</strong></p>
       </div>
     `).join("");
     servicesList.innerHTML = previewHTML;
   }
 
-  // ============ 3. TESTIMONIAL SLIDER ============
+  // ============ 4. TESTIMONIAL SLIDER ============
   const quoteEl = document.getElementById("quote");
   const nextBtn = document.getElementById("next-testimonial");
+  const prevBtn = document.getElementById("prev-testimonial");
 
   const testimonials = [
     "The team was punctual, respectful, and did an amazing job. My home has never looked better!",
@@ -106,6 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Next button
   if (nextBtn) {
     nextBtn.addEventListener("click", () => {
       currentQuoteIndex = (currentQuoteIndex + 1) % testimonials.length;
@@ -113,71 +130,146 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Show first quote on load
+  // Previous button
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      currentQuoteIndex = (currentQuoteIndex - 1 + testimonials.length) % testimonials.length;
+      showCurrentQuote();
+    });
+  }
+
+  // Auto-rotate every 6 seconds
+  if (quoteEl) {
+    setInterval(() => {
+      currentQuoteIndex = (currentQuoteIndex + 1) % testimonials.length;
+      showCurrentQuote();
+    }, 6000);
+  }
+
+  // Show first quote
   if (quoteEl) showCurrentQuote();
 
-  // ============ 4. CONTACT FORM HANDLING ============
-  const form = document.getElementById("contact-form");
-  const lastSubmissionEl = document.getElementById("last-submission");
+  // ============ 5. BOOKING FORM HANDLING ============
+  const bookingForm = document.getElementById("booking-form");
+  const confirmation = document.getElementById("confirmation");
+  const confirmName = document.getElementById("confirm-name");
+  const confirmService = document.getElementById("confirm-service");
+  const confirmDate = document.getElementById("confirm-date");
 
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
+  if (bookingForm) {
+    bookingForm.addEventListener("submit", function (e) {
+      e.preventDefault(); // Prevent reload
 
-      const name = form.name.value.trim();
-      const email = form.email.value.trim();
+      // Get form values
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const service = document.getElementById("service").value;
+      const date = document.getElementById("date").value;
 
-      // Simple validation
-      if (!name || !email) {
-        alert("Please fill in all required fields (Name and Email).");
+      // Validation
+      if (!name || !email || !service || !date) {
+        alert("Please fill in all fields.");
         return;
       }
 
-      // Validate email format
+      // Email validation
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email)) {
         alert("Please enter a valid email address.");
         return;
       }
 
-      // Gather form data
+      // Format date
+      const formattedDate = new Date(date).toLocaleDateString();
+
+      // Update confirmation message
+      confirmName.textContent = name;
+      confirmService.textContent = service;
+      confirmDate.textContent = formattedDate;
+
+      // Save to localStorage
       const request = {
         name,
         email,
-        service: form.service.value,
-        date: form.date.value || "Not specified",
-        message: form.message.value || "None",
+        service,
+        date,
         timestamp: new Date().toLocaleString()
       };
 
-      // Save to localStorage
       const requests = JSON.parse(localStorage.getItem("cleaningRequests")) || [];
       requests.push(request);
       localStorage.setItem("cleaningRequests", JSON.stringify(requests));
 
-      // Success feedback
-      alert(`Thank you, ${request.name}! We'll contact you shortly about your ${request.service} request.`);
-      form.reset();
+      // ✅ Show success message
+      confirmation.classList.remove("hidden");
 
-      // Update last submission display
-      if (lastSubmissionEl) {
-        lastSubmissionEl.innerHTML = `
-          <p style="color: green; margin-top: 1rem;">
-            ✅ Last request: <strong>${request.name}</strong> for <em>${request.service}</em> on ${request.timestamp}
-          </p>`;
+      // 🛑 Hide the form
+      bookingForm.style.display = "none";
+
+      // ➕ Add "Book Another" button
+      const container = bookingForm.parentElement;
+      const bookAnotherBtn = document.createElement("a");
+      bookAnotherBtn.href = "#";
+      bookAnotherBtn.textContent = "Book Another Cleaning";
+      bookAnotherBtn.className = "btn btn-primary";
+      bookAnotherBtn.style.display = "block";
+      bookAnotherBtn.style.marginTop = "1rem";
+      bookAnotherBtn.style.textAlign = "center";
+
+      bookAnotherBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        bookingForm.style.display = "block";
+        confirmation.classList.add("hidden");
+        container.appendChild(bookingForm); // Re-append if needed
+        bookingForm.reset();
+        container.removeChild(bookAnotherBtn);
+      });
+
+      container.appendChild(bookAnotherBtn);
+    });
+  }
+
+  // ============ 6. LAZY-LOAD IMAGE FADE-IN ============
+  const images = document.querySelectorAll("img[loading='lazy']");
+  images.forEach(img => {
+    img.addEventListener("load", () => {
+      img.classList.add("loaded");
+    });
+    if (img.complete) {
+      img.classList.add("loaded");
+    }
+    // ============ 7. ANIMATE STATS COUNTERS ============
+function animateCounter(id, target, duration = 2000) {
+  const element = document.getElementById(id);
+  if (!element) return;
+
+  let start = 0;
+  const increment = Math.ceil(target / (duration / 30)); // 30ms per step
+  const timer = setInterval(() => {
+    start += increment;
+    if (start >= target) {
+      start = target;
+      clearInterval(timer);
+    }
+    element.textContent = start.toLocaleString();
+  }, 30);
+}
+
+// Trigger when stats section is in view
+const statsSection = document.querySelector(".stats");
+if (statsSection) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter("counter-jobs", 24);
+        animateCounter("counter-homes", 350);
+        animateCounter("counter-eco", 1200);
+        observer.unobserve(entry.target); // Run once
       }
     });
+  }, { threshold: 0.1 });
 
-    // On page load: show last submission (if exists)
-    if (lastSubmissionEl) {
-      const requests = JSON.parse(localStorage.getItem("cleaningRequests")) || [];
-      if (requests.length > 0) {
-        const last = requests[requests.length - 1];
-        lastSubmissionEl.innerHTML = `
-          <p style="color: green; margin-top: 1rem;">
-            ✅ Last request: <strong>${last.name}</strong> for <em>${last.service}</em> on ${last.timestamp}
-          </p>`;
-      }
-    }
-  }
+  observer.observe(statsSection);
+}
+  });
 });
