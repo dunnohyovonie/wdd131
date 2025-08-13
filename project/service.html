@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Our cleaning services include home, office, deep cleaning, carpet care, and move-in/out cleaning.">
+  <title>Our Services - Liahona's Youth Cleaning Company</title>
+   <link rel="icon" href="images/lyccs.jpg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/project.css" >
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="../images/logo.svg" alt="Liahona's Logo" width="50" height="50">
+        <span>Liahona's</span>
+      </a>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#" class="active">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Our Cleaning Services</h1>
+        <p>Professional, affordable, and eco-friendly cleaning for every space.</p>
+      </div>
+    </section>
+
+    <section class="services-list">
+      <div class="container">
+        <div class="service-card">
+          <img src="images/lyccs.jpg" alt="Residential Cleaning" loading="lazy">
+          <h3>🏠 Residential Cleaning</h3>
+          <p>Regular or deep cleaning for homes of all sizes. Kitchens, bathrooms, floors, and more.</p>
+          <p class="price"><strong>Starting at $120</strong></p>
+        </div>
+
+        <div class="service-card">
+          <img src="../images/office.jpg" alt="Office Cleaning" loading="lazy">
+          <h3>🏢 Commercial Cleaning</h3>
+          <p>Keep your office spotless and professional. Daily, weekly, or monthly plans available.</p>
+          <p class="price"><strong>Starting at $180</strong></p>
+        </div>
+
+        <div class="service-card">
+          <img src="images/cleaning.jpg" alt="Carpet Cleaning" loading="lazy">
+          <h3>🧼 Carpet and Upholstery</h3>
+          <p>Deep steam cleaning to remove stains, odors, and allergens.</p>
+          <p class="price"><strong>Starting at $90</strong></p>
+        </div>
+
+        <div class="service-card">
+          <img src="images/cleaning.jpg" alt="Move-In/Out Cleaning" loading="lazy">
+          <h3>🚪 Move-In/Move-Out</h3>
+          <p>Thorough cleaning before moving in or out. Landlords love it!</p>
+          <p class="price"><strong>Starting at $200</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="booking" class="booking">
+      <div class="container">
+        <h2>Book Your Cleaning</h2>
+        <form id="booking-form">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" required >
+
+          <label for="email">Email</label>
+          <input type="email" id="email" required >
+
+          <label for="service">Service</label>
+          <select id="service" required>
+            <option value="">Select a service</option>
+            <option value="residential">Residential Cleaning</option>
+            <option value="commercial">Commercial Cleaning</option>
+            <option value="carpet">Carpet Cleaning</option>
+            <option value="move">Move-In/Move-Out</option>
+          </select>
+
+          <label for="date">Preferred Date</label>
+          <input type="date" id="date" required >
+
+          <button type="submit" class="btn btn-primary">Submit Booking</button>
+        </form>
+
+        <div id="confirmation" class="hidden">
+          <p>Thank you, <span id="confirm-name"></span>! Your booking for <strong><span id="confirm-service"></span></strong> on <span id="confirm-date"></span> has been received. We'll email you shortly.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Liahona's Youth Cleaning Company and Services. All rights reserved.</p>
+      <a href="../references.html">References</a>
+    </div>
+  </footer>
+
+  <script src="scripts/project.js"></script>
+</body>
+</html>
